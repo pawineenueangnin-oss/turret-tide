@@ -1385,7 +1385,7 @@ function showEnd(){
   setSheet(false); joy.on=false; joy.dx=joy.dy=0;
   if(G.endKind==="win"){
     const done=profile.stage, bonus=Math.round(100*stCoin()); G.bonus=bonus; profile.coins+=bonus;
-    profile.best=Math.max(profile.best,done); profile.stage=done+1; S=newStageState(profile.stage); persistStage(); persist();
+    profile.best=Math.max(profile.best,done); profile.stage=done+1; S=newStageState(profile.stage); S.coreMax=coreMaxHP(); S.coreHP=S.coreMax; persistStage(); persist();
     ADS.levelEnd(bonus);
     $("#w-title").textContent=t("Stage {n} cleared!",{n:done}); $("#w-bonus").textContent=fmt(bonus);
     for(let i=0;i<40;i++) P(G.cam.x+rand(-200,200),G.cam.y-rand(150,400),rand(-40,40),rand(60,160),rand(1.2,2.2),rand(3,5),pick(["#ffd23f","#ff5fa2","#5fd3ff","#7be03a","#fff"]),"confetti",0);
